@@ -1,0 +1,53 @@
+﻿
+<header class="header-area">
+    <div class="main-menu-header py-3">
+        <div class="container">
+            <div class="main-menu-wrapper bg-transparent rounded-0 p-0">
+                <div class="row align-items-center">
+                    <div class="col-lg-2">
+                        <a asp-action="Index" asp-controller="Home" class="main-logo">
+                            <img class="sticky-logo-hide" src="~/assets/images/logo-white.png" alt="logo">
+                            <img class="sticky-logo-show" src="~/assets/images/logo-black.png" alt="logo">
+                        </a>
+                    </div><!-- end col-lg-2 -->
+                    <div class="col-lg-10">
+                        <div class="main-navbar d-flex align-items-center justify-content-between">
+                            <nav class="main-nav main-nav-white text-capitalize main-nav-2">
+                                <ul>
+                                    <li>
+                                        <a asp-action="index" asp-controller="Home">Home <i class="fal fa-angle-down font-size-12"></i></a>
+                                        
+                                    </li>
+                                    <li>
+                                        <a asp-action="Services" asp-controller="Home">Services <i class="fal fa-angle-down font-size-12"></i></a>
+
+                                    <li class="has-mega-menu">
+                                        <a asp-action="About" asp-controller="Home">About <i class="fal fa-angle-down font-size-12"></i></a>
+                                        
+                                    </li>
+                                   
+                                    </li>
+                                    <li>
+                                        <a asp-action="Contact" asp-controller="Home">Contact <i class="fal fa-angle-down font-size-12"></i></a>
+                                        
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="navbar-toolbar d-flex align-items-center">
+                                <ul class="list-items list-items-white">
+                                    <li class="d-inline-block mr-2"><a href="#">Sign in</a></li>
+                                    <li class="d-inline-block"><a href="#" class="btn btn-sm btn-light text-black">Get Started</a></li>
+                                </ul>
+                                <div class="hamburger hamburger-white">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+                            </div><!-- end navbar-toolbar -->
+                        </div><!-- end main-navbar -->
+                    </div><!-- end col-lg-10 -->
+                </div><!-- end row -->
+            </div><!-- end main-menu-wrapper -->
+        </div> <!-- end container -->
+    </div><!-- end main-menu-header -->
+</header>
