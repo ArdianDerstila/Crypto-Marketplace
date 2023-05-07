@@ -1,5 +1,6 @@
 ﻿using Crypto_Marketplace.Models;
 using Newtonsoft.Json;
+using RestSharp;
 
 namespace Crypto_Marketplace.Api
 {
@@ -35,6 +36,20 @@ namespace Crypto_Marketplace.Api
             
         }
 
+
+        public async Task<string> Convert(string currency,string val)
+        {
+            var options = new RestClientOptions("https://blockchain.info")
+            {
+                MaxTimeout = -1,
+            };
+            var client = new RestClient(options);
+            var request = new RestRequest("/tobtc?currency="+currency+"&value="+val+"", Method.Get);
+            RestResponse response = await client.ExecuteAsync(request);
+            return response.ToString();
+        }
+
+       
 
     }
 }

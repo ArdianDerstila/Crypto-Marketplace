@@ -10,6 +10,8 @@ namespace Crypto_Marketplace.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IGetData _IGetData;
+       
+
         public HomeController(ILogger<HomeController> logger, IGetData iGetData)
         {
             _logger = logger;
@@ -18,13 +20,14 @@ namespace Crypto_Marketplace.Controllers
 
 
         
-        public ActionResult Index(string filter)
+        public ActionResult Index(string filter )
         {
-            
+           
             ViewBag.data = _IGetData.GetData(filter);
             return View();
         }
 
+       
 
         public IActionResult Contact()
         {
