@@ -1,6 +1,8 @@
-﻿@{
+﻿@model List<Data>
+@{
     Layout = null;
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +13,13 @@
 </head>
 <body>
 
-    <!-- end per-loader -->
+    <!-- start per-loader -->
+    <div class="loader-container">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <partial name="_header" />
 
     <section class="hero-area hero-area-3 bg-dark">
@@ -61,7 +69,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in ViewBag.data)
+                        @foreach (var item in Model)
                         {
                             <tr>
 
@@ -74,7 +82,7 @@
                                 </td>
                                 <td><span class="numeral green">$ @item.highPrice  </span></td>
                                 <td><span class="numeral red">$@item.lowPrice  </span></td>
-                                <td><span class="numeral ">$@item.priceChange</span> </td>
+                                <td><span class="numeral ">%@item.priceChange</span> </td>
                                 <td><span class="numeral">$@item.volume  </span></td>
                                 <td>
                                     <svg class="coin-market-chart" viewbox="0 0 100 32" version="1.1" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="none">
@@ -95,8 +103,7 @@
         </div><!-- end container -->
     </section><!-- end marketprice-area -->
 
-    
-
+  
     <section class="cta-area section-padding text-center bg-gray">
         <div class="container">
             <h2 class="sec-title mb-3">Get Started Today With Bitcoin</h2>
@@ -113,13 +120,6 @@
     <!-- end scroll-to-top -->
 
   
-
-  @*  <script>
-        setTimeout(() => {
-            document.location.reload();
-        }, 9000);
-
-    </script>*@
 
 </body>
 </html>

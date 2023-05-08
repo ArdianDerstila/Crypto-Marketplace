@@ -19,15 +19,18 @@ namespace Crypto_Marketplace.Controllers
         }
 
 
-        
+  
+
+
+
         public ActionResult Index(string filter )
         {
-           
-            ViewBag.data = _IGetData.GetData(filter);
-            return View();
+            List<Data> mylist = new List<Data>();
+            mylist=_IGetData.GetData(filter);
+            return View(mylist);
         }
-
        
+
 
         public IActionResult Contact()
         {
