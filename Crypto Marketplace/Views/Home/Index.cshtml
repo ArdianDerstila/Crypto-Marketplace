@@ -14,12 +14,12 @@
 <body>
 
     <!-- start per-loader -->
-    <div class="loader-container">
+    @*<div class="loader-container">
         <div class="loader-ripple">
             <div></div>
             <div></div>
         </div>
-    </div>
+    </div>*@
     <partial name="_header" />
 
     <section class="hero-area hero-area-3 bg-dark">
@@ -75,7 +75,7 @@
 
                                 <th scope="row">@item.count</th>
                                 <td class="d-flex align-items-center crypto-name-wrap">
-                                    <img src="~/assets/images/bitcoin-symble.png" class="flex-shrink-0 mr-2" alt="coin-img">
+                                    <a href="#" ><img src="~/assets/images/bitcoin-symble.png" class="flex-shrink-0 mr-2" alt="coin-img"></a>
                                     <p class="line-height-18">
                                         @item.symbol <span class="d-block font-size-11 text-gray"></span>
                                     </p>
@@ -111,7 +111,7 @@
             <a href="sign-up.html" class="btn btn-primary">Register Now <i class="fal fa-angle-right ml-1"></i></a>
         </div><!-- end container -->
     </section><!-- end cta-area -->
-
+  
     <partial name="_footer" />
 
     <div id="scroll-to-top">
@@ -119,7 +119,26 @@
     </div>
     <!-- end scroll-to-top -->
 
-  
+    <script>
+
+        setTimeout(() => {
+            document.location.reload();
+        }, 5000);
+        
+    </script>
+    <script>
+       
+        //$(function () {
+            
+        //    // Fetch data from server every 5 seconds
+        //    setInterval(function () {
+        //        $.getJSON('/Home/_tableData', function (data) {
+                   
+        //            console.log("received ")
+        //        });
+        //    }, 5000);
+        //});</script>
+
 
 </body>
 </html>

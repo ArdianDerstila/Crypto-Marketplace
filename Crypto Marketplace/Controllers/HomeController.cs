@@ -19,17 +19,35 @@ namespace Crypto_Marketplace.Controllers
         }
 
 
-  
-
-
 
         public ActionResult Index(string filter )
         {
             List<Data> mylist = new List<Data>();
             mylist=_IGetData.GetData(filter);
+            
             return View(mylist);
         }
-       
+
+
+        List<jData> list = new List<jData>();
+        public async Task<ActionResult> _tableData()
+        {
+
+           
+            string binanceAPI = "https://api.binance.com/api/v3/ticker/24hr";
+
+            HttpClient client = new HttpClient();
+            List<Data> mylist = new List<Data>();
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            response = client.GetAsync(binanceAPI).Result;
+            string json = response.Content.ReadAsStringAsync().Result;
+            var data = JsonConvert.DeserializeObject<List<Data>>(json);
+            mylist = data;
+
+
+            return View(mylist.Take(10));
+        }
 
 
         public IActionResult Contact()
@@ -43,10 +61,7 @@ namespace Crypto_Marketplace.Controllers
         }
 
         
-        public IActionResult Services()
-        {
-            return View();
-        }
+       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
