@@ -19,7 +19,6 @@ namespace Crypto_Marketplace.Controllers
         }
 
 
-
         public ActionResult Index(string filter )
         {
             List<Data> mylist = new List<Data>();
@@ -29,7 +28,7 @@ namespace Crypto_Marketplace.Controllers
         }
 
 
-        List<jData> list = new List<jData>();
+       // List<jData> list = new List<jData>();
         public async Task<ActionResult> _tableData()
         {
 
@@ -47,6 +46,36 @@ namespace Crypto_Marketplace.Controllers
 
 
             return View(mylist.Take(10));
+        }
+
+
+        
+       
+        public async Task<JsonResult> ChartD()
+        {
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync("https://api.binance.com/api/v3/ticker/24hr");
+                var content = await response.Content.ReadAsStringAsync();
+                var DeserializeObjectD = JsonConvert.DeserializeObject<List<jData>>(content);
+                var firstElement = DeserializeObjectD.First();
+                return Json(firstElement.PriceChangePercent);
+
+            }
+        }
+
+        //test
+        public async Task<JsonResult> ChartD1()
+        {
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync("https://api.binance.com/api/v3/ticker/24hr");
+                var content = await response.Content.ReadAsStringAsync();
+                var DeserializeObjectD = JsonConvert.DeserializeObject<List<jData>>(content);
+                var firstElement = DeserializeObjectD.First();
+                return Json(firstElement.PriceChangePercent);
+
+            }
         }
 
 
